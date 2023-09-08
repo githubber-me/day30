@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button id="addButton">Add Task</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        const taskInput = document.getElementById("taskInput");
+        const addButton = document.getElementById("addButton");
+        const taskList = document.getElementById("taskList");
+
+        addButton.addEventListener("click", function() {
+            const taskText = taskInput.value.trim();
+            if (taskText === "") return;
+
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `
+                <input type="checkbox">
+                <span>${taskText}</span>
+                <button class="removeButton">Remove</button>
+            `;
+
+            const removeButton = listItem.querySelector(".removeButton");
+            const checkbox = listItem.querySelector("input");
+
+            checkbox.addEventListener("change", function() {
+                listItem.classList.toggle("completed", checkbox.checked);
+            });
+
+            removeButton.addEventListener("click", function() {
+                listItem.remove();
+            });
+
+            taskList.appendChild(listItem);
+            taskInput.value = "";
+        });
