@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User Generator</title>
+</head>
+<body>
+    <h1>Random User Generator</h1>
+    <button id="generateButton">Generate Random User</button>
+    <div id="userContainer">
+        <img id="userImage" src="" alt="User">
+        <p id="userName"></p>
+        <p id="userEmail"></p>
+    </div>
+
+    <script>
+        const generateButton = document.getElementById("generateButton");
+        const userImage = document.getElementById("userImage");
+        const userName = document.getElementById("userName");
+        const userEmail = document.getElementById("userEmail");
+
+        generateButton.addEventListener("click", fetchRandomUser);
+
+        function fetchRandomUser() {
+            // Make a fetch request to the random user API
+            fetch("https://randomuser.me/api/")
+                .then(response => response.json())
+                .then(data => {
+                    const user = data.results[0];
+                    const firstName = user.name.first;
+                    const lastName = user.name.last;
+                    const email = user.email;
+                    const imageUrl = user.picture.large;
+
+                    // Update the DOM with fetched data
+                    userName.textContent = `${firstName} ${lastName}`;
+                    userEmail.textContent = email;
+                    userImage.src = imageUrl;
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        }
+
+        // Initial user generation
+        fetchRandomUser();
+    </script>
+</body>
+</html>
