@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <div id="timer"></div>
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+
+    <script>
+        const timerElement = document.getElementById("timer");
+        const startButton = document.getElementById("startButton");
+        const stopButton = document.getElementById("stopButton");
+        let countdownInterval;
+
+        startButton.addEventListener("click", startCountdown);
+        stopButton.addEventListener("click", stopCountdown);
+
+        function startCountdown() {
+            let targetTime = new Date().getTime() + 60000; // 1 minute in the future
+
+            countdownInterval = setInterval(function() {
+                let now = new Date().getTime();
+                let timeDifference = targetTime - now;
+
+                let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                timerElement.textContent = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+                if (timeDifference < 0) {
+                    clearInterval(countdownInterval);
+                    timerElement.textContent = "Time's up!";
+                }
+            }, 1000);
+        }
+
+        function stopCountdown() {
+            clearInterval(countdownInterval);
+            timerElement.textContent = "Countdown stopped";
+        }
+    </script>
+</body>
+</html>
