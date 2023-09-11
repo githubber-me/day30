@@ -3,8 +3,6 @@
 
 Learning JavaScript through thirty days of continuous coding. Documenting my journey here
 
-# Hey there, I am Anthahkarana 👋
-
 
 ## 🚀 Who Am I ?
 A second semster student in Bangalore Institute of Technology, Bengaluru pursuing a B.E degree in AI&ML.
