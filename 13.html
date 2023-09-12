@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+</head>
+<body>
+    <h1>Interactive Quiz</h1>
+    <div id="quizContainer">
+        <div id="question"></div>
+        <input type="radio" name="answer" id="option1"> <label for="option1" id="label1"></label><br>
+        <input type="radio" name="answer" id="option2"> <label for="option2" id="label2"></label><br>
+        <input type="radio" name="answer" id="option3"> <label for="option3" id="label3"></label><br>
+        <button id="submit">Submit</button>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Madrid", "Paris"],
+                correctAnswer: "Paris"
+            },
+            {
+                question: "What is 2 + 2?",
+                options: ["3", "4", "5"],
+                correctAnswer: "4"
+            },
+            {
+                question: "What is the color of the sky?",
+                options: ["Green", "Blue", "Red"],
+                correctAnswer: "Blue"
+            }
+        ];
+
+        const quizContainer = document.getElementById("quizContainer");
+        const questionElement = document.getElementById("question");
+        const option1 = document.getElementById("option1");
+        const option2 = document.getElementById("option2");
+        const option3 = document.getElementById("option3");
+        const label1 = document.getElementById("label1");
+        const label2 = document.getElementById("label2");
+        const label3 = document.getElementById("label3");
+        const submitButton = document.getElementById("submit");
+        const resultElement = document.getElementById("result");
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const current = questions[currentQuestion];
+            questionElement.textContent = current.question;
+            label1.textContent = current.options[0];
+            label2.textContent = current.options[1];
+            label3.textContent = current.options[2];
+        }
+
+        function checkAnswer() {
+            const selectedOption = document.querySelector("input[name='answer']:checked");
+            if (selectedOption) {
+                const answer = selectedOption.labels[0].textContent;
+                if (answer === questions[currentQuestion].correctAnswer) {
+                    score++;
+                }
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    loadQuestion();
+                } else {
+                    showResult();
+                }
+            }
+        }
+
+        function showResult() {
+            quizContainer.style.display = "none";
+            resultElement.textContent = `You scored ${score} out of ${questions.length}.`;
+        }
+
+        submitButton.addEventListener("click", checkAnswer);
+
+        loadQuestion();
+    </script>
+</body>
+</html>
