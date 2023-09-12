@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+    <h1>Form Validation</h1>
+    <form id="registrationForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br>
+        <button type="submit">Register</button>
+    </form>
+    <div id="message"></div>
+
+    <script>
+        const form = document.getElementById("registrationForm");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (username.length < 3) {
+                message.textContent = "Username must be at least 3 characters long.";
+            } else if (!email.includes("@")) {
+                message.textContent = "Invalid email address.";
+            } else if (password.length < 6) {
+                message.textContent = "Password must be at least 6 characters long.";
+            } else {
+                message.textContent = "Form submitted successfully!";
+                form.reset();
+            }
+        });
+    </script>
+</body>
+</html>
