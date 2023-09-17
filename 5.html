@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Quote Generator</title>
+    <title>Random Wish Generator</title>
 </head>
 <body>
-    <h1>Random Quote Generator</h1>
-    <p id="quote"></p>
-    <button id="generateButton">Generate Quote</button>
+    <h1>Random Wish Generator</h1>
+    <p id="wish"></p>
+    <button id="generateButton">Generate Wish</button>
 
     <script>
         // Array of quotes
-        const quotes = [
+        const wishes = [
             "Hey",
             "Hello",
             "Hi",
@@ -20,18 +20,18 @@
             "Heya"
         ];
 
-        const quoteElement = document.getElementById("quote");
+        const wishElement = document.getElementById("wish");
         const generateButton = document.getElementById("generateButton");
 
-        function generateRandomQuote() {
-            const randomIndex = Math.floor(Math.random() * quotes.length);
-            const randomQuote = quotes[randomIndex];
-            quoteElement.textContent = randomQuote;
+        function generateRandomWish() {
+            const randomIndex = Math.floor(Math.random() * wishes.length);
+            const randomWish = wishes[randomIndex];
+            wishElement.textContent = randomWish;
         }
 
-        generateButton.addEventListener("click", generateRandomQuote);
+        generateButton.addEventListener("click", generateRandomWish);
 
-        generateRandomQuote();
+        generateRandomWish();
     </script>
 </body>
 </html>
