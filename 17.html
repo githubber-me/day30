@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <div id="timer">00:00</div>
+    <button id="startTimer">Start</button>
+    <button id="stopTimer">Stop</button>
+    <button id="resetTimer">Reset</button>
+
+    <script>
+        let timeInSeconds = 0;
+        let timerInterval;
+
+        const timerElement = document.getElementById("timer");
+        const startButton = document.getElementById("startTimer");
+        const stopButton = document.getElementById("stopTimer");
+        const resetButton = document.getElementById("resetTimer");
+
+        function updateTimer() {
+            const minutes = Math.floor(timeInSeconds / 60);
+            const seconds = timeInSeconds % 60;
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeInSeconds++;
+                updateTimer();
+            }, 1000);
+            startButton.disabled = true;
+            stopButton.disabled = false;
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            startButton.disabled = false;
+            stopButton.disabled = true;
+        }
+
+        function resetTimer() {
+            timeInSeconds = 0;
+            updateTimer();
+            stopTimer();
+        }
+
+        startButton.addEventListener("click", startTimer);
+        stopButton.addEventListener("click", stopTimer);
+        resetButton.addEventListener("click", resetTimer);
+
+        updateTimer();
+    </script>
+</body>
+</html>
