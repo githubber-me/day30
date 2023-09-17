@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+</head>
+<body>
+    <h1>Weather App</h1>
+    <input type="text" id="city" placeholder="Enter place name">
+    <button id="getWeather">Get Weather</button>
+    <div id="weatherInfo"></div>
+
+    <script>
+        const apiKey = '9c5b4e85b28acfa547091ffeabeeb7bb'; 
+        const getWeatherButton = document.getElementById('getWeather');
+        const cityInput = document.getElementById('city');
+        const weatherInfo = document.getElementById('weatherInfo');
+
+        async function getWeather() {
+            const city = cityInput.value;
+            if (city.trim() !== '') {
+                try {
+                    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+                    const response = await fetch(apiUrl);
+                    const data = await response.json();
+                    const weatherDescription = data.weather[0].description;
+                    const temperature = (data.main.temp - 273.15).toFixed(2); // Convert to Celsius
+                    const weatherResult = `The weather in ${city} is ${weatherDescription} with a temperature of ${temperature}°C.`;
+                    weatherInfo.textContent = weatherResult;
+                } catch (error) {
+                    weatherInfo.textContent = 'Error fetching weather data. Please try again.';
+                }
+            }
+        }
+
+        getWeatherButton.addEventListener('click', getWeather);
+    </script>
+</body>
+</html>
