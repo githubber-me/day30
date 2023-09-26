@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+</head>
+<body>
+    <h1>Random Password Generator</h1>
+    <label for="length">Password Length:</label>
+    <input type="number" id="length" min="1" max="50" value="8">
+    <br><br>
+    <input type="checkbox" id="uppercase"> Uppercase
+    <input type="checkbox" id="lowercase"> Lowercase
+    <input type="checkbox" id="numbers"> Numbers
+    <input type="checkbox" id="special"> Special Characters
+    <br><br>
+    <button onclick="generatePassword()">Generate Password</button>
+    <p id="password"></p>
+
+    <script>
+        function generatePassword() {
+            const length = document.getElementById('length').value;
+            const uppercase = document.getElementById('uppercase').checked;
+            const lowercase = document.getElementById('lowercase').checked;
+            const numbers = document.getElementById('numbers').checked;
+            const special = document.getElementById('special').checked;
+
+            let characters = '';
+            if (uppercase) characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (lowercase) characters += 'abcdefghijklmnopqrstuvwxyz';
+            if (numbers) characters += '0123456789';
+            if (special) characters += '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
+
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                password += characters[randomIndex];
+            }
+
+            document.getElementById('password').textContent = password;
+        }
+    </script>
+</body>
+</html>
