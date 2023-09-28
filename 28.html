@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+</head>
+<body>
+    <h1>Number Guessing Game</h1>
+    <p>Guess the number between 1 and 100</p>
+    <input type="number" id="guess" min="1" max="100">
+    <button onclick="checkGuess()">Submit Guess</button>
+    <p id="result"></p>
+
+    <script>
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 5;
+
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById('guess').value);
+
+            if (userGuess === randomNumber) {
+                document.getElementById('result').textContent = `Congratulations! You guessed the number in ${6 - attempts} attempts.`;
+                document.getElementById('result').style.color = 'green';
+                document.getElementById('guess').disabled = true;
+            } else {
+                attempts--;
+                if (attempts > 0) {
+                    document.getElementById('result').textContent = `Wrong guess! ${attempts} attempts remaining.`;
+                    document.getElementById('result').style.color = 'red';
+                } else {
+                    document.getElementById('result').textContent = `Sorry, you've used all your attempts. The number was ${randomNumber}.`;
+                    document.getElementById('result').style.color = 'red';
+                    document.getElementById('guess').disabled = true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
