@@ -21,7 +21,7 @@
             const userGuess = parseInt(document.getElementById('guess').value);
 
             if (userGuess === randomNumber) {
-                document.getElementById('result').textContent = `Congratulations! You guessed the number in ${attempts} attempts.`;
+                document.getElementById('result').textContent = `Congrats! You guessed the number in ${attempts} attempts.`;
                 document.getElementById('result').style.color = 'green';
                 document.getElementById('guess').disabled = true;
             } else if (userGuess < randomNumber) {
