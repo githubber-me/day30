@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Piano</title>
+    <style>
+        .piano {
+            display: flex;
+        }
+        .key {
+            width: 50px;
+            height: 150px;
+            background-color: white;
+            border: 1px solid black;
+            cursor: pointer;
+            text-align: center;
+            line-height: 150px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Virtual Piano</h1>
+    <div class="piano">
+        <div class="key" id="C" onclick="playSound('C')">C</div>
+        <div class="key" id="D" onclick="playSound('D')">D</div>
+        <div class="key" id="E" onclick="playSound('E')">E</div>
+        <div class="key" id="F" onclick="playSound('F')">F</div>
+        <div class="key" id="G" onclick="playSound('G')">G</div>
+        <div class="key" id="A" onclick="playSound('A')">A</div>
+        <div class="key" id="B" onclick="playSound('B')">B</div>
+    </div>
+
+    <script>
+        function playSound(note) {
+            const audio = new Audio(`sounds/${note}.mp3`);
+            audio.play();
+        }
+    </script>
+</body>
+</html>
