@@ -26,7 +26,7 @@
         function generateRandomWish() {
             const randomIndex = Math.floor(Math.random() * wishes.length);
             const randomWish = wishes[randomIndex];
-            const name = document.getElementById("name").value || "Friend"; // Default to "Friend" if no name is provided
+            const name = document.getElementById("name").value || "Friend"; 
             wishElement.textContent = `${randomWish}, ${name}!`;
         }
 
