@@ -3,6 +3,7 @@
 # September Coding Chapter by Anthahkarana
 
 This repository constitutes programs of the thirty-day coding initiative organized for the core team of Google Developers Student Club (GDSC), Bangalore Institute of Technology (BIT) in the month of September 2023. It reflects my initiation into the realm of front-end development during this period. Presented herein are thirty simple programs, each programmed on a daily basis as part of this comprehensive campaign.
+
 Due to concurrent examinations, my emphasis was primarily directed towards JavaScript functionality, and as a result, the styling (CSS) aspect may appear rudimentary. Nevertheless, this approach allowed for a more profound exploration of JavaScript's capabilities and intricacies.
 
 
