@@ -18,9 +18,10 @@ Due to concurrent examinations, my emphasis was primarily directed towards JavaS
 I completed the 'Introduction to JavaScript' certification course by Sololearn inc. during this same period. It can be found here :- https://www.sololearn.com/certificates/CC-VMO9RFL0
 ## On Github
 
-![Streaks](https://github.com/githubber-me/day30/assets/100427124/58d9e4c9-77e9-4da2-8f34-adefeab4b21d)
+![Untitled 22design](https://github.com/githubber-me/day30/assets/100427124/29614ab1-9580-4ca1-b42e-f339081386b7)
 
-![Contribution graph](https://github.com/githubber-me/day30/assets/100427124/412b3b5b-7c1b-463f-af9a-898e0de6c343)
+![Untitled33 design](https://github.com/githubber-me/day30/assets/100427124/7b5d7159-62e6-4076-9f85-12ca3ca462db)
+
 
 ## About Me
 I'm Anthahkarana, a second semester Bachelor of Engineering student majoring in Artificial Intelligence and Machine Learning in Bangalore Institute of Technology.
