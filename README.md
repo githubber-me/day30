@@ -15,7 +15,7 @@ Due to concurrent examinations, my emphasis was primarily directed towards JavaS
 **I have deployed these programs at https://githubber-me.github.io/1h0st/  to offer an enhanced user interface and facilitate seamless accessibility.**
 ## Certification
 
-I completed the 'Introduction to JavaScript' certification course by Sololearn inc. during the same period. It can be found here :- https://www.sololearn.com/certificates/CC-VMO9RFL0
+I completed the 'Introduction to JavaScript' course by Sololearn inc. during the same period. The certification can be found here :- https://www.sololearn.com/certificates/CC-VMO9RFL0
 ## On Github
 
 ![Untitled 22design](https://github.com/githubber-me/day30/assets/100427124/29614ab1-9580-4ca1-b42e-f339081386b7)
