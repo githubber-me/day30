@@ -2,13 +2,15 @@
 
 # September Coding Chapter by Anthahkarana
 
-This repository is a part of the thirty days coding campaign conducted for the core team of GDSC, BIT in September 2023. I started learning front-end development in this month and here are the thirty programs that I've programmed and studied as a part of this campaign.
+This repository constitutes programs of the thirty-day coding initiative organized for the core team of Google Developers Student Club (GDSC), Bangalore Institute of Technology (BIT) in the month of September 2023. It reflects my initiation into the realm of front-end development during this period. Presented herein are thirty simple programs, each programmed on a daily basis as part of this comprehensive campaign.
+
+
 
 
 
 ## Deployment
 
-I have deployed these programs at https://githubber-me.github.io/1h0st/ so as to provide a better interface. 
+I have deployed these programs at https://githubber-me.github.io/1h0st/  to offer an enhanced user interface and facilitate seamless accessibility.
 ## Certification
 
 I completed an 'Introduction to JavaScript' certification course by Sololearn inc. during this same period. It can be found here :- https://www.sololearn.com/certificates/CC-VMO9RFL0
