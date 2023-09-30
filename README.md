@@ -12,7 +12,7 @@ Due to concurrent examinations, my emphasis was primarily directed towards JavaS
 
 ## Deployment
 
-I have deployed these programs at https://githubber-me.github.io/1h0st/  to offer an enhanced user interface and facilitate seamless accessibility.
+**I have deployed these programs at https://githubber-me.github.io/1h0st/  to offer an enhanced user interface and facilitate seamless accessibility.**
 ## Certification
 
 I completed an 'Introduction to JavaScript' certification course by Sololearn inc. during this same period. It can be found here :- https://www.sololearn.com/certificates/CC-VMO9RFL0
