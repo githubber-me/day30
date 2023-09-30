@@ -3,43 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Interactive Quiz</title>
 </head>
 <body>
-    <h1>Calculator</h1>
-    <input type="text" id="result" readonly>
-    <div id="buttons">
-        <button onclick="appendToResult('1')">1</button>
-        <button onclick="appendToResult('2')">2</button>
-        <button onclick="appendToResult('3')">3</button>
-        <button onclick="appendToResult('4')">4</button>
-        <button onclick="appendToResult('5')">5</button>
-        <button onclick="appendToResult('6')">6</button>
-        <button onclick="appendToResult('7')">7</button>
-        <button onclick="appendToResult('8')">8</button>
-        <button onclick="appendToResult('9')">9</button>
-        <button onclick="appendToResult('0')">0</button>
-        <button onclick="appendToResult('+')">+</button>
-        <button onclick="appendToResult('-')">-</button>
-        <button onclick="appendToResult('*')">*</button>
-        <button onclick="appendToResult('/')">/</button>
-        <button onclick="calculateResult()">=</button>
-        <button onclick="clearResult()">C</button>
+    <h1>Interactive Quiz</h1>
+    <div id="quizContainer">
+        <div id="question"></div>
+        <input type="radio" name="answer" id="option1"> <label for="option1" id="label1"></label><br>
+        <input type="radio" name="answer" id="option2"> <label for="option2" id="label2"></label><br>
+        <input type="radio" name="answer" id="option3"> <label for="option3" id="label3"></label><br>
+        <button id="submit">Submit</button>
     </div>
+    <div id="result"></div>
+    <button id="reset" style="display:none;">Reset Quiz</button>
 
     <script>
-        function appendToResult(value) {
-            document.getElementById('result').value += value;
+        const questions = [
+            {
+                question: "Does BIT have a GDSC club ?",
+                options: ["Nope", "Yes", "Not sure"],
+                correctAnswer: "Yes"
+            },
+            {
+                question: "What is the parent company of Google",
+                options: ["Meta", "Amazon", "Alphabet"],
+                correctAnswer: "Alphabet"
+            },
+            {
+                question: "What is the full form of GDSC",
+                options: ["Gladly Dancing Students Club", "Google Developers Student Club", "Gastronomical Dynamic Strangers Club"],
+                correctAnswer: "Google Developers Student Club"
+            }
+        ];
+
+        const quizContainer = document.getElementById("quizContainer");
+        const questionElement = document.getElementById("question");
+        const option1 = document.getElementById("option1");
+        const option2 = document.getElementById("option2");
+        const option3 = document.getElementById("option3");
+        const label1 = document.getElementById("label1");
+        const label2 = document.getElementById("label2");
+        const label3 = document.getElementById("label3");
+        const submitButton = document.getElementById("submit");
+        const resultElement = document.getElementById("result");
+        const resetButton = document.getElementById("reset");
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const current = questions[currentQuestion];
+            questionElement.textContent = current.question;
+            label1.textContent = current.options[0];
+            label2.textContent = current.options[1];
+            label3.textContent = current.options[2];
         }
 
-        function calculateResult() {
-            const result = eval(document.getElementById('result').value);
-            document.getElementById('result').value = result;
+        function checkAnswer() {
+            const selectedOption = document.querySelector("input[name='answer']:checked");
+            if (selectedOption) {
+                const answer = selectedOption.labels[0].textContent;
+                if (answer === questions[currentQuestion].correctAnswer) {
+                    score++;
+                }
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    loadQuestion();
+                } else {
+                    showResult();
+                }
+            }
         }
 
-        function clearResult() {
-            document.getElementById('result').value = '';
+        function showResult() {
+            quizContainer.style.display = "none";
+            resultElement.textContent = `You scored ${score} out of ${questions.length}.`;
+            resetButton.style.display = "block";
         }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            quizContainer.style.display = "block";
+            resultElement.textContent = "";
+            resetButton.style.display = "none";
+            loadQuestion();
+        }
+
+        submitButton.addEventListener("click", checkAnswer);
+        resetButton.addEventListener("click", resetQuiz);
+
+        loadQuestion();
     </script>
 </body>
 </html>
