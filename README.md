@@ -20,3 +20,5 @@ Graphic Design and Python
 ## Appendix
 
 As part of a thirty day coding campaign by GDSC, BIT, Bengaluru.
+![Streaks](https://github.com/githubber-me/day30/assets/100427124/58d9e4c9-77e9-4da2-8f34-adefeab4b21d)
+![Contribution graph](https://github.com/githubber-me/day30/assets/100427124/412b3b5b-7c1b-463f-af9a-898e0de6c343)
