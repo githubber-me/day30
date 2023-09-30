@@ -3,49 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task List</title>
-    <style>
-        .completed {
-            text-decoration: line-through;
-        }
-    </style>
+    <title>Random Wish Generator</title>
 </head>
 <body>
-    <h1>Task List</h1>
-    <input type="text" id="taskInput" placeholder="Enter a task">
-    <button id="addButton">Add Task</button>
-    <ul id="taskList"></ul>
+    <h1>Random Wish Generator</h1>
+    <p id="wish"></p>
+    <input type="text" id="name" placeholder="Enter your name">
+    <button id="generateButton">Generate Wish</button>
 
     <script>
-        const taskInput = document.getElementById("taskInput");
-        const addButton = document.getElementById("addButton");
-        const taskList = document.getElementById("taskList");
+        const wishes = [
+            "Hey",
+            "Hello",
+            "Hi",
+            "Hola",
+            "Heya"
+        ];
 
-        addButton.addEventListener("click", function() {
-            const taskText = taskInput.value.trim();
-            if (taskText === "") return;
+        const wishElement = document.getElementById("wish");
+        const generateButton = document.getElementById("generateButton");
 
-            const listItem = document.createElement("li");
-            listItem.innerHTML = `
-                <input type="checkbox">
-                <span>${taskText}</span>
-                <button class="removeButton">Remove</button>
-            `;
+        function generateRandomWish() {
+            const randomIndex = Math.floor(Math.random() * wishes.length);
+            const randomWish = wishes[randomIndex];
+            const name = document.getElementById("name").value || "Friend"; // Default to "Friend" if no name is provided
+            wishElement.textContent = `${randomWish}, ${name}!`;
+        }
 
-            const removeButton = listItem.querySelector(".removeButton");
-            const checkbox = listItem.querySelector("input");
+        generateButton.addEventListener("click", generateRandomWish);
 
-            checkbox.addEventListener("change", function() {
-                listItem.classList.toggle("completed", checkbox.checked);
-            });
-
-            removeButton.addEventListener("click", function() {
-                listItem.remove();
-            });
-
-            taskList.appendChild(listItem);
-            taskInput.value = "";
-        });
+        generateRandomWish();
     </script>
 </body>
 </html>
